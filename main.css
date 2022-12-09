@@ -5,6 +5,12 @@ body {
     background-color: beige;
 }
 
+button{
+    border: none;
+    background: none;
+    border-radius: 10px;
+}
+
 li{
     list-style: none;
 }
@@ -13,6 +19,7 @@ li{
     display: flex;
     gap: 30px;
     justify-content: center;
+    align-items: center;
 }
 
 .calendar > div{
@@ -80,8 +87,24 @@ li{
 }
 
 .ymlist p{
-    font-size: 12px;
-    margin: 7px;
+    font-size: 11px;
+    margin: 9px 1px;
+}
+.btnbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.reload button{
+    border: none;
+    color: white;
+    background: #c7b199;
+    font-size: 14px;
+    padding: 7px;
+    border-radius: 10px;
+    font-weight: 500;
 }
 
 .rd-btn{
@@ -94,13 +117,29 @@ li{
     border: none;
     color: white;
     background: #c7b199;
-    font-size: 16px;
-    padding: 3px;
+    font-size: 14px;
+    padding: 7px;
     border-radius: 10px;
+    font-weight: 500;
 }
 
 .ms {
     margin-top: 5px;
     font-size: 15px;
     text-align: center;
+}
+
+.person li{
+    padding: 3px;
+    padding-left: 10px;
+    margin: 3px;
+    background: #ECE6CC;
+    border-radius: 20px;
+}
+
+.main-window{
+    align-items: center;
+    background: #d0b084;
+    border-radius: 10px;
+    margin-bottom: 5px;
 }

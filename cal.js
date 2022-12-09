@@ -17,14 +17,30 @@ const Calendar = {
             .forEach(elem=> {
                 elem.onclick = function(){
                     const day = this.innerText;
-                    this.id = "click";
-                    console.log(`${Calendar.month} ${day}`);
-                    ymarr.push(`${Calendar.month}월 ${day}일`);
-                    Calendar.callist.innerHTML += `
-                        <div class="ymlist">
-                            <p onclick="Calendar.addMonth(-1)">${Calendar.month}/${day}</p>
-                        </div>
-                    `
+                    if(this.id != "click"){
+                        this.id = "click";
+                        ymarr.push(`${Calendar.month}월${day}일`);
+                        mes();
+                        Calendar.callist.innerHTML += `
+                            <div class="ymlist">
+                                <p>${Calendar.month}월${day}일</p>
+                            </div>
+                        `
+                    } else if(this.id == "click"){
+                        const num = ymarr.indexOf(`${Calendar.month}월 ${day}일`);
+                        ymarr.splice(num,1);
+                        // console.log(`${Calendar.month}월${day}일`);
+                        this.id="";
+                        Calendar.callist.innerHTML ="";
+                        for(let c=0; c<ymarr.length; c++){
+                            Calendar.callist.innerHTML += `
+                            <div class="ymlist">
+                                <p>${ymarr[c]}</p>
+                            </div>
+                        ` 
+                        }
+                        mes();
+                    }
                 }
             });
     },

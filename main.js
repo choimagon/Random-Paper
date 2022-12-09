@@ -8,19 +8,22 @@ const rdbtn = document.querySelector(".rd-btn button");
 const person = document.querySelector(".person");
 const message = document.querySelector(".ms");
 
+
 let ymarr = []; //날짜 저장되는 배열임
 
 pnf.addEventListener("submit", (e)=>{
     e.preventDefault();
-    console.log(pnfinput.value);
-    mainwindowh2.innerHTML = `제비 갯수 : ${paperinput.value*pnfinput.value}`;
+    // console.log(pnfinput.value);
+    mes();
+    mainwindowh2.innerHTML = `종이 : ${paperinput.value*pnfinput.value}`;
     mainwindowh3.innerHTML = `인원 수 : ${pnfinput.value} | 개인당 뽑을 수 : ${paperinput.value}`;
 });
 
 paper.addEventListener("submit", (e)=>{
     e.preventDefault();
-    console.log(paperinput.value);
-    mainwindowh2.innerHTML = `제비 갯수 : ${paperinput.value*pnfinput.value}`;
+    // console.log(paperinput.value);
+    mes();
+    mainwindowh2.innerHTML = `종이 : ${paperinput.value*pnfinput.value}`;
     mainwindowh3.innerHTML = `인원 수 : ${pnfinput.value} | 개인당 뽑을 수 : ${paperinput.value}`;
 });
 
@@ -28,6 +31,7 @@ rdbtn.addEventListener("click", (e)=>{
     e.preventDefault();
     if(ymarr.length == paperinput.value*pnfinput.value){
         removeAllchild(person); 
+        message.innerText = "";
         const before = document.querySelectorAll(".ymlist");
         before.forEach(v => v.remove());
         let randomarr = []
@@ -41,7 +45,7 @@ rdbtn.addEventListener("click", (e)=>{
                     i--
                 }
             }
-            console.log(randomarr);
+            // console.log(randomarr);
         }  
         for(let a=0; a<pnfinput.value; a++){
             const li = document.createElement("li");
@@ -53,14 +57,9 @@ rdbtn.addEventListener("click", (e)=>{
             }
             person.appendChild(li);
         }
+        
     } else {
-        let sumvalue = paperinput.value*pnfinput.value;
-        message.innerText = `선택 된 제비 : ${ymarr.length}개 ----- `;
-        if(ymarr.length < sumvalue){
-            message.innerText += ` ${sumvalue-ymarr.length}개 추가해주세요.`;
-        } else {
-            message.innerText += ` ${ymarr.length-sumvalue}개 지워주세요.`; 
-        }
+        mes();
     }
 })
 
@@ -70,3 +69,12 @@ function removeAllchild(div) {
     }
 }
 
+function mes(){
+    let sumvalue = paperinput.value*pnfinput.value;
+    message.innerText = `✣ 선택 된 종이 : ${ymarr.length}개 ----- `;
+    if(ymarr.length < sumvalue){
+        message.innerText += ` ${sumvalue-ymarr.length}개 추가해주세요.`;
+    } else {
+        message.innerText += ` ${ymarr.length-sumvalue}개 지워주세요.`; 
+    }
+}
