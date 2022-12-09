@@ -20,6 +20,7 @@ li{
     gap: 30px;
     justify-content: center;
     align-items: center;
+    font-size: 18px;
 }
 
 .calendar > div{
@@ -101,8 +102,8 @@ li{
     border: none;
     color: white;
     background: #c7b199;
-    font-size: 14px;
-    padding: 7px;
+    font-size: 18px;
+    padding: 5px;
     border-radius: 10px;
     font-weight: 500;
 }
@@ -117,8 +118,8 @@ li{
     border: none;
     color: white;
     background: #c7b199;
-    font-size: 14px;
-    padding: 7px;
+    font-size: 18px;
+    padding: 5px;
     border-radius: 10px;
     font-weight: 500;
 }
