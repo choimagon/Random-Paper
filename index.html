@@ -6,42 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <title>Random-Paper</title>
+    <script src="cal.js"></script>
 </head>
 <body>
-    <div class="people-num">
-        <form class="people-num-form">
-            <label for="pnf">인원 수 : </label>
-            <input type="number" name="pnf" min="1" max="20">
-            <button> 확인 </button>
-        </form>
+
+    <div class="main-window" style="display: flex; gap: 10px; justify-content: center;">
+        <h2 style="font-size: 20px; margin: 5px;">제비 갯수 : 0</h2>
+        <h3 style="font-size: 12px;">인원 수 : 0 | 개인당 뽑을 수 : 0</h3>
     </div>
-    <br>
-    <div class="paper-num">
-        <form class="paper-num-form">
-            <label for="paper">개인당 뽑을 종이장 수 : </label>
-            <input type="number" name="paper" min="1" max="4" style="width: 20px;">
-            <button> 확인 </button>
-        </form>
+
+    <div class="formbox">
+        <div class="people-num" style="margin-bottom: 5px;">
+            <form class="people-num-form">
+                <label for="pnf">인원 수 : </label>
+                <input type="number" name="pnf" min="1" max="20" style="width: 24px;">
+                <button> 확인 </button>
+            </form>
+        </div>
+        <div class="paper-num">
+            <form class="paper-num-form">
+                <label for="paper">개인당 뽑을 수 : </label>
+                <input type="number" name="paper" min="1" max="4" style="width: 24px;">
+                <button> 확인 </button>
+            </form>
+        </div>
     </div>
-    <br>
-    <div class="date">
-        <form class="date-form">
-            <label for="df">시작 날짜 : </label>
-            <input type="date" name="df">
-            <button> 확인 </button>
-        </form>
-    </div>
-    <div class="main-window">
-        <h2>제비 갯수 : 0</h2>
-        <h3>인원 수 : 0 | 개인당 뽑을 수 : 0</h3>
-    </div>
+
     <div class="rd-btn">
         <button> 랜덤 뽑기 시작 </button>
     </div>
-    <br>
-    <div class="person">
-
+    <div class="ms">
     </div>
+    <div class="ym">
+        <button onclick="Calendar.addMonth(-1)">◀︎</button>
+        <h3 class="cal-title">2022. 12.</h3>
+        <button onclick="Calendar.addMonth(1)">►</button>
+    </div>
+
+    <div class="calendar">
+        <div class="calendar-top">일</div>
+        <div class="calendar-top">월</div>
+        <div class="calendar-top">화</div>
+        <div class="calendar-top">수</div>
+        <div class="calendar-top">목</div>
+        <div class="calendar-top">금</div>
+        <div class="calendar-top">토</div>
+    </div>
+
+    <div class="callist"></div> 
+    <div class="person"></div>
     <script src="main.js"></script>
+    <script>
+        Calendar.cal = document.querySelector(".calendar");
+        Calendar.caltitle = document.querySelector(".ym .cal-title");
+        Calendar.callist = document.querySelector(".callist");
+        Calendar.init();
+    </script>
 </body>
 </html>

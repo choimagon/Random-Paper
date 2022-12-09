@@ -2,8 +2,105 @@ body {
     margin: 0;
     padding: 10px;
     box-sizing: border-box;
+    background-color: beige;
 }
 
 li{
     list-style: none;
+}
+
+.formbox{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.calendar > div{
+    border-radius: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 11px;
+    padding: 5px;
+    background: #ECE6CC;
+    border-radius: 10px;
+}
+
+.calendar-top {
+    padding: 5px;
+    background: grey;
+    color: white;
+    text-align: center;
+}
+.calendar-top:first-of-type{
+    background: lightcoral;
+}
+
+.calendar-top:nth-child(7){
+    background-color: skyblue;
+}
+
+.hidden-date{
+    visibility: hidden;
+}
+.date {
+    background: white;
+    text-align: center;
+}
+.date p{
+    margin: 7px;
+}
+.ym {
+    display: flex;
+    height: 30px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#click {
+    background-color: #D3D3D3;
+}
+
+.callist {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 11px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.callist .ymlist {
+    background-color: #FF9D6E;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.ymlist p{
+    font-size: 12px;
+    margin: 7px;
+}
+
+.rd-btn{
+    display: flex;
+    padding: 3px;
+    justify-content: center;
+}
+
+.rd-btn button{
+    border: none;
+    color: white;
+    background: #c7b199;
+    font-size: 16px;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.ms {
+    margin-top: 5px;
+    font-size: 15px;
+    text-align: center;
 }
