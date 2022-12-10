@@ -27,7 +27,7 @@ const Calendar = {
                             </div>
                         `
                     } else if(this.id == "click"){
-                        const num = ymarr.indexOf(`${Calendar.month}월 ${day}일`);
+                        const num = ymarr.indexOf(`${Calendar.month}월${day}일`);
                         ymarr.splice(num,1);
                         // console.log(`${Calendar.month}월${day}일`);
                         this.id="";
