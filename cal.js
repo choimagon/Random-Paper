@@ -55,6 +55,7 @@ const Calendar = {
                 </div>
             `
         }
+        // console.log(Calendar.getLastDate(y, m));
         Calendar.eventhandle();
     },
 
@@ -64,7 +65,7 @@ const Calendar = {
     },
 
     getLastDate(y, m){
-        const date = new Date(y, m+1, 0);
+        const date = new Date(y, m, 0);
         return date.getDate();
     },
 
