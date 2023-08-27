@@ -8,8 +8,25 @@ const rdbtn = document.querySelector(".rd-btn button");
 const person = document.querySelector(".person");
 const message = document.querySelector(".ms");
 
+const pnamef = document.querySelector(".people-name-form");
+const pnamefinput = document.querySelector(".people-name-form input");
+const namemessage = document.querySelector(".ms-name");
+
+
 
 let ymarr = []; //날짜 저장되는 배열임
+let namearr = [];
+
+pnamef.addEventListener("submit", (e) =>{
+    e.preventDefault();
+    console.log(pnamefinput.value);
+    if(pnamefinput.value == ""){
+    } else {
+        namearr.push(pnamefinput.value);
+    }
+    namemessage.innerText = `총 ${namearr.length}명 (${namearr})`;
+    pnamefinput.value = "";
+})
 
 pnf.addEventListener("submit", (e)=>{
     e.preventDefault();
@@ -29,13 +46,15 @@ paper.addEventListener("submit", (e)=>{
 
 rdbtn.addEventListener("click", (e)=>{
     e.preventDefault();
-    if(ymarr.length == paperinput.value*pnfinput.value){
+    if(ymarr.length == paperinput.value*pnfinput.value && ymarr.length == namearr.length){
         removeAllchild(person); 
         message.innerText = "";
         const before = document.querySelectorAll(".ymlist");
         before.forEach(v => v.remove());
         let randomarr = []
+        let randomnamearr = []
         // const random = Math.floor(Math.random() * paperinput.value*pnfinput.value)
+        //랜덤 날짜
         for(let j=0; j<pnfinput.value; j++){
             for(let i=0; i<paperinput.value; i++){
                 const random = Math.floor(Math.random() * paperinput.value*pnfinput.value)
@@ -45,12 +64,26 @@ rdbtn.addEventListener("click", (e)=>{
                     i--
                 }
             }
-            // console.log(randomarr);
         }  
+        console.log(randomarr);
+        //랜덤 이름
+        for(let j=0; j<pnfinput.value; j++){
+            for(let i=0; i<paperinput.value; i++){
+                const randomname = Math.floor(Math.random() * paperinput.value*pnfinput.value)
+                if(randomnamearr.indexOf(randomname) === -1){
+                    randomnamearr.push(randomname)
+                } else{
+                    i--
+                }
+            }
+        }  
+        console.log(randomnamearr);
+
         for(let a=0; a<pnfinput.value; a++){
             const li = document.createElement("li");
             li.id = a;
-            li.innerText = `${a+1} 번째 : `
+            let rd = randomnamearr[a];
+            li.innerText = `${namearr[rd]} : `
             for(let b=0; b<paperinput.value; b++){
                 let an = randomarr[paperinput.value*a+b];
                 li.innerText += `[ ${ymarr[an]} ]`;
