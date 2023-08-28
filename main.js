@@ -67,7 +67,7 @@ rdbtn.addEventListener("click", (e)=>{
         }  
         // console.log("날짜");
         // console.log(randomarr);
-        //랜덤 이름
+        //랜덤 이름 (이름 갯수만 만큼 랜덤임)
         for(let j=0; j<pnfinput.value; j++){
             const randomname = Math.floor(Math.random() * pnfinput.value)
             if(randomnamearr.indexOf(randomname) === -1){
@@ -90,9 +90,14 @@ rdbtn.addEventListener("click", (e)=>{
             }
             person.appendChild(li);
         }
+
+        namemessage.innerText = `총 ${namearr.length}명 (${namearr})`;
+
         
     } else {
         mes();
+        namemessage.innerText = `총 ${namearr.length}명 (${namearr}) !! 사람 인원 및 날짜 선택 갯수 확인 !!`;
+
     }
 })
 
