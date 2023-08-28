@@ -46,7 +46,7 @@ paper.addEventListener("submit", (e)=>{
 
 rdbtn.addEventListener("click", (e)=>{
     e.preventDefault();
-    if(ymarr.length == paperinput.value*pnfinput.value && ymarr.length == namearr.length){
+    if(ymarr.length == paperinput.value*pnfinput.value && pnfinput.value == namearr.length){
         removeAllchild(person); 
         message.innerText = "";
         const before = document.querySelectorAll(".ymlist");
@@ -65,19 +65,19 @@ rdbtn.addEventListener("click", (e)=>{
                 }
             }
         }  
-        console.log(randomarr);
+        // console.log("날짜");
+        // console.log(randomarr);
         //랜덤 이름
         for(let j=0; j<pnfinput.value; j++){
-            for(let i=0; i<paperinput.value; i++){
-                const randomname = Math.floor(Math.random() * paperinput.value*pnfinput.value)
-                if(randomnamearr.indexOf(randomname) === -1){
-                    randomnamearr.push(randomname)
-                } else{
-                    i--
-                }
+            const randomname = Math.floor(Math.random() * pnfinput.value)
+            if(randomnamearr.indexOf(randomname) === -1){
+                randomnamearr.push(randomname)
+            } else{
+                j--
             }
         }  
-        console.log(randomnamearr);
+        // console.log("이름");
+        // console.log(randomnamearr);
 
         for(let a=0; a<pnfinput.value; a++){
             const li = document.createElement("li");
